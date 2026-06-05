@@ -1,0 +1,183 @@
+[gd_scene format=3 uid="uid://ckc2ayhxnfyaq"]
+
+[ext_resource type="Script" uid="uid://d0mx1dd5byjmg" path="res://scripts/end_credits.gd" id="1_240hb"]
+[ext_resource type="FontFile" uid="uid://dr87hymki54cb" path="res://fonts/good timing bd.otf" id="1_dhn2b"]
+[ext_resource type="LabelSettings" uid="uid://tmu6pbavisxx" path="res://resources/title_text_label_settings.tres" id="2_55m7m"]
+[ext_resource type="Shader" uid="uid://bmbrmuj4vxfo4" path="res://shaders/crt.gdshader" id="2_325g6"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_dhn2b"]
+font = ExtResource("1_dhn2b")
+font_size = 30
+font_color = Color(1, 1, 1, 0)
+
+[sub_resource type="LabelSettings" id="LabelSettings_240hb"]
+font = ExtResource("1_dhn2b")
+font_size = 30
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_240hb"]
+shader = ExtResource("2_325g6")
+shader_parameter/brightness = 1.4350000681625
+shader_parameter/contrast = 1.08
+shader_parameter/saturation = 0.0
+shader_parameter/gamma = 0.20000000298023
+shader_parameter/curvature = 0.0
+shader_parameter/corner_soften = 0.0
+shader_parameter/vignette = 0.0
+shader_parameter/scanline_strength = 0.95
+shader_parameter/scanline_density = 1.15
+shader_parameter/interlace_strength = 0.2
+shader_parameter/mask_strength = 0.22
+shader_parameter/mask_scale = 1.0
+shader_parameter/chroma_offset_px = 1.6
+shader_parameter/luma_smear_px = 2.2
+shader_parameter/jitter_px = 1.8
+shader_parameter/wobble_px = 1.5
+shader_parameter/tape_noise = 0.22
+shader_parameter/tape_lines = 0.35
+shader_parameter/roll_speed = 0.1
+shader_parameter/roll_strength = 0.15
+shader_parameter/glow_strength = 0.25
+shader_parameter/glow_threshold = 0.65
+
+[sub_resource type="Animation" id="Animation_240hb"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("title:visible_characters")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("subtitle:label_settings:font_color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_55m7m"]
+resource_name = "end_cred"
+length = 10.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("title:visible_characters")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1, 1.5, 2, 2.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("subtitle:label_settings:font_color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 4, 8),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_u2phu"]
+_data = {
+&"RESET": SubResource("Animation_240hb"),
+&"end_cred": SubResource("Animation_55m7m")
+}
+
+[node name="Control" type="Control" unique_id=1989584943]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_240hb")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1166441653]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="title" type="Label" parent="." unique_id=472109747]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -112.0
+offset_top = -192.0
+offset_right = 115.0
+offset_bottom = -71.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "B i T"
+label_settings = ExtResource("2_55m7m")
+horizontal_alignment = 1
+visible_characters = 0
+visible_ratio = 0.0
+
+[node name="subtitle" type="Label" parent="." unique_id=1761098085]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -11.5
+offset_right = 20.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "A game by Featherless Chickens Studios"
+label_settings = SubResource("LabelSettings_dhn2b")
+
+[node name="final_time" type="Label" parent="." unique_id=1260594982]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = 96.0
+offset_right = 20.0
+offset_bottom = 128.0
+grow_horizontal = 2
+grow_vertical = 2
+label_settings = SubResource("LabelSettings_240hb")
+
+[node name="ColorRect2" type="ColorRect" parent="." unique_id=307298304]
+material = SubResource("ShaderMaterial_240hb")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1992227112]
+libraries/ = SubResource("AnimationLibrary_u2phu")
+
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

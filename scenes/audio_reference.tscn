@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://vmf0pq4qs8r7"]
+
+[ext_resource type="Script" uid="uid://dsuwixon14u6r" path="res://audio_reference.gd" id="1_6s07t"]
+[ext_resource type="AudioStream" uid="uid://ck36ii81geekh" path="res://audio/sfx/door.ogg" id="2_1uivw"]
+[ext_resource type="AudioStream" uid="uid://b7ssfq2i5e820" path="res://audio/sfx/footstep.ogg" id="3_56kjk"]
+[ext_resource type="AudioStream" uid="uid://cuwaqndvse6cw" path="res://audio/sfx/vent.ogg" id="4_fxd8m"]
+[ext_resource type="AudioStream" uid="uid://dwtyd0od3035a" path="res://audio/sfx/jumpscare.mp3" id="5_y2pbm"]
+[ext_resource type="AudioStream" uid="uid://qx486me8y3o8" path="res://audio/sfx/unlock.ogg" id="6_5l02b"]
+[ext_resource type="AudioStream" uid="uid://dor72ussluyhn" path="res://audio/sfx/button_back.ogg" id="7_56kjk"]
+[ext_resource type="AudioStream" uid="uid://bpksxq5aeet6h" path="res://audio/ambience/drone.mp3" id="7_amy0s"]
+
+[node name="Node" type="Node" unique_id=1045321432]
+script = ExtResource("1_6s07t")
+sfx_door_open = ExtResource("2_1uivw")
+sfx_door_close = ExtResource("2_1uivw")
+sfx_enemy_footstep = ExtResource("3_56kjk")
+sfx_enemy_vent = ExtResource("4_fxd8m")
+sfx_enemy_jumpscare = ExtResource("5_y2pbm")
+sfx_ui_button_click = ExtResource("6_5l02b")
+sfx_ui_button_back_click = ExtResource("7_56kjk")
+amb_lab_audio = ExtResource("7_amy0s")

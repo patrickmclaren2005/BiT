@@ -1,0 +1,51 @@
+[gd_scene format=3 uid="uid://35rbkv5i2one"]
+
+[ext_resource type="Texture2D" uid="uid://c1q251s6w3l23" path="res://sprites/energy_icon.png" id="1_2kkd2"]
+[ext_resource type="Script" uid="uid://dticnlv35772c" path="res://scripts/energy_bar.gd" id="1_6dfqc"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6dfqc"]
+content_margin_left = 2.0
+content_margin_top = 2.0
+content_margin_right = 2.0
+content_margin_bottom = 2.0
+bg_color = Color(0.20598418, 0.20598418, 0.20598418, 0.26500002)
+border_color = Color(0, 0, 0, 1)
+corner_detail = 1
+expand_margin_left = 2.0
+expand_margin_top = 2.0
+expand_margin_right = 2.0
+expand_margin_bottom = 2.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hk11k"]
+content_margin_left = 2.0
+content_margin_top = 2.0
+content_margin_right = 2.0
+content_margin_bottom = 2.0
+bg_color = Color(0, 0.9819874, 0.601064, 1)
+corner_detail = 5
+
+[node name="energy_bar" type="ProgressBar" unique_id=574562230]
+custom_minimum_size = Vector2(50, 200)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -25.0
+offset_top = -100.0
+offset_right = 25.0
+offset_bottom = 100.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/background = SubResource("StyleBoxFlat_6dfqc")
+theme_override_styles/fill = SubResource("StyleBoxFlat_hk11k")
+max_value = 1.0
+value = 1.0
+fill_mode = 3
+show_percentage = false
+script = ExtResource("1_6dfqc")
+
+[node name="energy_icon" type="Sprite2D" parent="." unique_id=1794002527]
+position = Vector2(25.000017, -27.999989)
+scale = Vector2(3.0000002, 2.9999993)
+texture = ExtResource("1_2kkd2")

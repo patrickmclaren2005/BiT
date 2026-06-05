@@ -1,0 +1,68 @@
+[gd_scene format=3 uid="uid://bk7umdm7y5bl2"]
+
+[ext_resource type="Material" uid="uid://bi0k2jsktudsn" path="res://resources/crt_shader_mat.tres" id="1_1mcje"]
+[ext_resource type="Script" uid="uid://6eb5741qkgxv" path="res://scripts/start_screen.gd" id="1_cw4ki"]
+[ext_resource type="LabelSettings" uid="uid://tmu6pbavisxx" path="res://resources/title_text_label_settings.tres" id="1_dxwas"]
+[ext_resource type="Theme" uid="uid://diwl2ffmjyp4" path="res://resources/button_theme_main.tres" id="3_vbjei"]
+
+[node name="start_screen" type="Control" unique_id=1698339585]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_cw4ki")
+
+[node name="background" type="ColorRect" parent="." unique_id=1347112479]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.24115604, 0.24115604, 0.24115601, 1)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=235907712]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -176.0
+offset_top = -184.0
+offset_right = 58.666687
+offset_bottom = 109.33331
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.5, 1.5)
+theme_override_constants/separation = 16
+
+[node name="title" type="Label" parent="VBoxContainer" unique_id=897293521]
+layout_mode = 2
+text = "B i T"
+label_settings = ExtResource("1_dxwas")
+
+[node name="start_game_button" type="Button" parent="VBoxContainer" unique_id=742893152]
+layout_mode = 2
+theme = ExtResource("3_vbjei")
+text = "Start Game"
+
+[node name="level_select_button" type="Button" parent="VBoxContainer" unique_id=1127618425]
+layout_mode = 2
+theme = ExtResource("3_vbjei")
+text = "Level Select"
+
+[node name="crt" type="ColorRect" parent="." unique_id=1278097613]
+material = ExtResource("1_1mcje")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[connection signal="pressed" from="VBoxContainer/start_game_button" to="." method="_on_start_game_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/level_select_button" to="." method="_on_level_select_button_pressed"]

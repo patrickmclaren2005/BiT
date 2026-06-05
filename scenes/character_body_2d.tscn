@@ -1,0 +1,99 @@
+[gd_scene format=3 uid="uid://dvhk4tgsk3ju7"]
+
+[ext_resource type="Script" uid="uid://ca7asbewckieu" path="res://scripts/character_controller.gd" id="1_g2brh"]
+[ext_resource type="Script" uid="uid://ct3dhimd27b5" path="res://scripts/human_node.gd" id="2_4vejd"]
+[ext_resource type="Shader" uid="uid://cojphev6w2frn" path="res://shaders/colour_circle.gdshader" id="3_ws0vm"]
+[ext_resource type="Texture2D" uid="uid://uvcbkadtgtmj" path="res://icon.svg" id="4_rhr3r"]
+[ext_resource type="Script" uid="uid://bnne4mboidtg1" path="res://scripts/sprint_handler.gd" id="5_ws0vm"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g2brh"]
+size = Vector2(120.000015, 120)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_t53lx"]
+shader = ExtResource("3_ws0vm")
+shader_parameter/nodeColour = Vector4(1, 1, 1, 1)
+shader_parameter/nodeModulate = 1.0
+
+[sub_resource type="Animation" id="Animation_ws0vm"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("human_node/Sprite2D:material:shader_parameter/nodeModulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.0]
+}
+
+[sub_resource type="Animation" id="Animation_4vejd"]
+resource_name = "pulse"
+length = 2.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("human_node/Sprite2D:material:shader_parameter/nodeModulate")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [1.0, 0.5, 1.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ws0vm"]
+_data = {
+&"RESET": SubResource("Animation_ws0vm"),
+&"pulse": SubResource("Animation_4vejd")
+}
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_4vejd"]
+radius = 129.99998
+
+[node name="CharacterBody2D" type="CharacterBody2D" unique_id=2066349968]
+process_mode = 1
+scale = Vector2(0.1, 0.1)
+motion_mode = 1
+wall_min_slide_angle = 0.0
+script = ExtResource("1_g2brh")
+speed = 100
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=166554983]
+position = Vector2(2.0861623e-06, 7.152555e-06)
+scale = Vector2(0.99999976, 0.99999976)
+shape = SubResource("RectangleShape2D_g2brh")
+
+[node name="human_node" type="Node2D" parent="." unique_id=1719843189]
+scale = Vector2(0.99999994, 0.99999994)
+script = ExtResource("2_4vejd")
+node_colour = Color(0, 0, 1, 1)
+
+[node name="Sprite2D" type="Sprite2D" parent="human_node" unique_id=1756240241]
+material = SubResource("ShaderMaterial_t53lx")
+texture = ExtResource("4_rhr3r")
+
+[node name="animator" type="AnimationPlayer" parent="." unique_id=1403979973]
+libraries/ = SubResource("AnimationLibrary_ws0vm")
+
+[node name="AudioListener2D" type="AudioListener2D" parent="." unique_id=912833973]
+current = true
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1782160756]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1714899539]
+shape = SubResource("CircleShape2D_4vejd")
+
+[node name="sprint_handler" type="Node" parent="." unique_id=709814220]
+script = ExtResource("5_ws0vm")
+sprint_decay_rate = 0.33
+sprint_restore_rate = 0.1
+
+[node name="sprint_timer" type="Timer" parent="sprint_handler" unique_id=476489625]
+one_shot = true
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

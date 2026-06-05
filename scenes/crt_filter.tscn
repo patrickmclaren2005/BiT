@@ -1,0 +1,100 @@
+[gd_scene format=3 uid="uid://cj8pl2d1vxonu"]
+
+[ext_resource type="PackedScene" uid="uid://35rbkv5i2one" path="res://scenes/energy_bar.tscn" id="1_cdf3r"]
+[ext_resource type="Shader" uid="uid://bmbrmuj4vxfo4" path="res://shaders/crt.gdshader" id="1_ntrj8"]
+[ext_resource type="PackedScene" uid="uid://b5fqcmygi23lq" path="res://scenes/pause_text.tscn" id="2_qebwj"]
+
+[sub_resource type="Animation" id="Animation_cdf3r"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_qebwj"]
+resource_name = "fade"
+length = 4.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 0), Color(0, 0, 0, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_kt6l3"]
+_data = {
+&"RESET": SubResource("Animation_cdf3r"),
+&"fade": SubResource("Animation_qebwj")
+}
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_cdf3r"]
+shader = ExtResource("1_ntrj8")
+shader_parameter/brightness = 1.02
+shader_parameter/contrast = 1.08
+shader_parameter/saturation = 1.1
+shader_parameter/gamma = 1.05
+shader_parameter/curvature = 0.14
+shader_parameter/corner_soften = 0.06
+shader_parameter/vignette = 0.0
+shader_parameter/scanline_strength = 0.95
+shader_parameter/scanline_density = 1.15
+shader_parameter/interlace_strength = 0.2
+shader_parameter/mask_strength = 0.22
+shader_parameter/mask_scale = 1.0
+shader_parameter/chroma_offset_px = 1.6
+shader_parameter/luma_smear_px = 2.2
+shader_parameter/jitter_px = 1.8
+shader_parameter/wobble_px = 1.5
+shader_parameter/tape_noise = 0.22
+shader_parameter/tape_lines = 0.35
+shader_parameter/roll_speed = 0.1
+shader_parameter/roll_strength = 0.15
+shader_parameter/glow_strength = 0.25
+shader_parameter/glow_threshold = 0.65
+
+[node name="CanvasLayer" type="CanvasLayer" unique_id=401935784]
+
+[node name="energy_bar" parent="." unique_id=574562230 instance=ExtResource("1_cdf3r")]
+offset_left = -480.0
+offset_top = -328.0
+offset_right = -430.0
+offset_bottom = -128.0
+scale = Vector2(0.8, 0.8)
+
+[node name="fade" type="ColorRect" parent="." unique_id=1444191496]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="fade" unique_id=1894744227]
+libraries/ = SubResource("AnimationLibrary_kt6l3")
+
+[node name="pause_text" parent="." unique_id=1964498464 instance=ExtResource("2_qebwj")]
+process_mode = 3
+visible = false
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1207509347]
+material = SubResource("ShaderMaterial_cdf3r")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_lock_ = true

@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://dwh70sd6s3hrk"]
+
+[ext_resource type="Script" uid="uid://cgqxygwujrrl7" path="res://scripts/level_warp.gd" id="1_32x8n"]
+[ext_resource type="AudioStream" uid="uid://bpksxq5aeet6h" path="res://audio/ambience/drone.mp3" id="2_gqtva"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6tq0k"]
+size = Vector2(16, 16)
+
+[node name="level_warp" type="Area2D" unique_id=576635002]
+script = ExtResource("1_32x8n")
+audio_clip = ExtResource("2_gqtva")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=102947298]
+shape = SubResource("RectangleShape2D_6tq0k")
+
+[node name="Timer" type="Timer" parent="." unique_id=1552164152]
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

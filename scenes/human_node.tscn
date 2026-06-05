@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://r1a5mcjjwwb"]
+
+[ext_resource type="Script" uid="uid://ct3dhimd27b5" path="res://scripts/human_node.gd" id="1_4goht"]
+[ext_resource type="Shader" uid="uid://cojphev6w2frn" path="res://shaders/colour_circle.gdshader" id="1_b0lo2"]
+[ext_resource type="Texture2D" uid="uid://uvcbkadtgtmj" path="res://icon.svg" id="2_4goht"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ql1b8"]
+shader = ExtResource("1_b0lo2")
+shader_parameter/nodeColour = Vector4(0, 0, 0, 0)
+
+[node name="human_node" type="Node2D" unique_id=1719843189]
+script = ExtResource("1_4goht")
+node_colour = Color(0.6344922, 0.06979356, 0.8755234, 1)
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1756240241]
+material = SubResource("ShaderMaterial_ql1b8")
+texture = ExtResource("2_4goht")

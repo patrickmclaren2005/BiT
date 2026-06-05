@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://vg7xfeey2a2g"]
+
+[ext_resource type="Texture2D" uid="uid://uvcbkadtgtmj" path="res://icon.svg" id="1_iv2xf"]
+[ext_resource type="Shader" uid="uid://sp4iiwkst3fe" path="res://shaders/colour_wall.gdshader" id="1_noevn"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_pr4kw"]
+shader = ExtResource("1_noevn")
+shader_parameter/node_colour = Vector4(1, 1, 1, 1)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_noevn"]
+size = Vector2(128, 128)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_noevn"]
+polygon = PackedVector2Array(-64, -64, 64, -64, 64, 64, -64, 64)
+
+[node name="Sprite2D" type="Sprite2D" unique_id=2097776122]
+material = SubResource("ShaderMaterial_pr4kw")
+texture = ExtResource("1_iv2xf")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=174044890]
+collision_layer = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=758895316]
+shape = SubResource("RectangleShape2D_noevn")
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="StaticBody2D/CollisionShape2D" unique_id=1668728664]
+occluder = SubResource("OccluderPolygon2D_noevn")

@@ -1,0 +1,66 @@
+[gd_scene format=3 uid="uid://cg5le14ejdgsg"]
+
+[ext_resource type="Shader" uid="uid://ik4y1lr32tr8" path="res://shaders/colour_wall_hollow.gdshader" id="1_c660g"]
+[ext_resource type="Script" uid="uid://c6tkwjm74tmvw" path="res://scripts/door.gd" id="2_7v7f1"]
+[ext_resource type="Shader" uid="uid://sp4iiwkst3fe" path="res://shaders/colour_wall.gdshader" id="3_7h3b6"]
+[ext_resource type="Texture2D" uid="uid://uvcbkadtgtmj" path="res://icon.svg" id="3_kiejn"]
+[ext_resource type="AudioStream" uid="uid://ck36ii81geekh" path="res://audio/sfx/door.ogg" id="5_0d81x"]
+[ext_resource type="AudioStream" uid="uid://qx486me8y3o8" path="res://audio/sfx/unlock.ogg" id="5_3ncgi"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_c660g"]
+shader = ExtResource("1_c660g")
+shader_parameter/color = Color(0.44705883, 0.38039216, 0, 1)
+shader_parameter/current_alpha = 1.0
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_7v7f1"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7v7f1"]
+size = Vector2(1, 1)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kiejn"]
+size = Vector2(1, 5.3333335)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_0d81x"]
+resource_local_to_scene = true
+shader = ExtResource("3_7h3b6")
+shader_parameter/node_colour = Vector4(0, 0, 0, 1)
+
+[node name="Sprite2D" type="Sprite2D" unique_id=352309729]
+material = SubResource("ShaderMaterial_c660g")
+position = Vector2(0, 4.000002)
+scale = Vector2(128, 24)
+texture = SubResource("CanvasTexture_7v7f1")
+script = ExtResource("2_7v7f1")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1088262494]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=36959831]
+position = Vector2(0, -7.4505806e-08)
+shape = SubResource("RectangleShape2D_7v7f1")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=915643667]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1792052248]
+position = Vector2(0, -0.16666682)
+shape = SubResource("RectangleShape2D_kiejn")
+
+[node name="NavigationObstacle2D" type="NavigationObstacle2D" parent="." unique_id=2119157524]
+vertices = PackedVector2Array(-0.5, -0.5000001, 0.5, -0.5000001, 0.5, 0.49999994, -0.5, 0.49999994)
+affect_navigation_mesh = true
+avoidance_enabled = false
+
+[node name="key_indicator" type="Sprite2D" parent="." unique_id=1070819664]
+material = SubResource("ShaderMaterial_0d81x")
+position = Vector2(0, -8.940697e-08)
+scale = Vector2(0.0009765626, 0.0026041665)
+texture = ExtResource("3_kiejn")
+
+[node name="unlock_sound" type="AudioStreamPlayer2D" parent="key_indicator" unique_id=1970930248]
+stream = ExtResource("5_3ncgi")
+
+[node name="door_sound" type="AudioStreamPlayer2D" parent="." unique_id=602685713]
+stream = ExtResource("5_0d81x")
+pitch_scale = 0.91
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

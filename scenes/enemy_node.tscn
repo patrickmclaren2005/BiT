@@ -1,0 +1,119 @@
+[gd_scene format=3 uid="uid://w6ei40my8x01"]
+
+[ext_resource type="Shader" uid="uid://cojphev6w2frn" path="res://shaders/colour_circle.gdshader" id="1_ilucu"]
+[ext_resource type="Script" uid="uid://bsm5jnxemyjio" path="res://scripts/enemy_node.gd" id="1_lcxlm"]
+[ext_resource type="Texture2D" uid="uid://uvcbkadtgtmj" path="res://icon.svg" id="2_lcxlm"]
+[ext_resource type="AudioStream" uid="uid://dwtyd0od3035a" path="res://audio/sfx/jumpscare.mp3" id="4_m02cf"]
+[ext_resource type="AudioStream" uid="uid://b7ssfq2i5e820" path="res://audio/sfx/footstep.ogg" id="5_jde88"]
+[ext_resource type="AudioStream" uid="uid://cuwaqndvse6cw" path="res://audio/sfx/vent.ogg" id="6_5cy0s"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_m02cf"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_jde88"]
+shader = ExtResource("1_ilucu")
+shader_parameter/nodeColour = Vector4(1, 1, 1, 0)
+shader_parameter/nodeModulate = 0.0
+
+[sub_resource type="Animation" id="Animation_m02cf"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:material:shader_parameter/nodeModulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_lcxlm"]
+resource_name = "fade_in"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:material:shader_parameter/nodeModulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.0]
+}
+
+[sub_resource type="Animation" id="Animation_jde88"]
+resource_name = "fade_out"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:material:shader_parameter/nodeModulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [1.0, 0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_m02cf"]
+_data = {
+&"RESET": SubResource("Animation_m02cf"),
+&"fade_in": SubResource("Animation_lcxlm"),
+&"fade_out": SubResource("Animation_jde88")
+}
+
+[node name="enemy_node" type="CharacterBody2D" unique_id=642146302]
+process_mode = 1
+script = ExtResource("1_lcxlm")
+vision_range = 300
+can_vent = true
+vent_timer_length = 10.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1889034816]
+shape = SubResource("RectangleShape2D_m02cf")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=500763893]
+material = SubResource("ShaderMaterial_jde88")
+texture = ExtResource("2_lcxlm")
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="." unique_id=171839818]
+path_desired_distance = 1.0
+simplify_epsilon = 3.861
+avoidance_enabled = true
+radius = 100.0
+max_speed = 10.0
+debug_enabled = true
+
+[node name="animator" type="AnimationPlayer" parent="." unique_id=1936865941]
+libraries/ = SubResource("AnimationLibrary_m02cf")
+
+[node name="jumpscare_sfx" type="AudioStreamPlayer2D" parent="." unique_id=171285910]
+stream = ExtResource("4_m02cf")
+pitch_scale = 0.66
+
+[node name="jumpscare_timer" type="Timer" parent="jumpscare_sfx" unique_id=646302200]
+wait_time = 10.0
+one_shot = true
+
+[node name="footstep" type="AudioStreamPlayer2D" parent="." unique_id=30783532]
+stream = ExtResource("5_jde88")
+volume_db = -35.0
+pitch_scale = 0.7
+max_distance = 400.0
+panning_strength = 1.88
+
+[node name="footstep_timer" type="Timer" parent="footstep" unique_id=1987139309]
+wait_time = 0.5
+one_shot = true
+
+[node name="on_screen" type="VisibleOnScreenNotifier2D" parent="." unique_id=1261654185]
+
+[node name="vent_sfx" type="AudioStreamPlayer2D" parent="." unique_id=245003749]
+stream = ExtResource("6_5cy0s")
+volume_db = -10.0

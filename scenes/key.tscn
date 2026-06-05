@@ -1,0 +1,31 @@
+[gd_scene format=3 uid="uid://dxgpvjgg4v10m"]
+
+[ext_resource type="Script" uid="uid://djoo03jea277" path="res://scripts/key.gd" id="1_fttkb"]
+[ext_resource type="Texture2D" uid="uid://uvcbkadtgtmj" path="res://icon.svg" id="1_yk2u2"]
+[ext_resource type="Shader" uid="uid://dw34lcvxu0fx7" path="res://shaders/key.gdshader" id="2_wy8tx"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_fttkb"]
+resource_local_to_scene = true
+shader = ExtResource("2_wy8tx")
+shader_parameter/node_colour = Vector4(1, 1, 1, 1)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_wy8tx"]
+radius = 12.0
+
+[node name="Node2D" type="Node2D" unique_id=1237451646]
+script = ExtResource("1_fttkb")
+rotation_speed = 50
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1861344823]
+material = SubResource("ShaderMaterial_fttkb")
+position = Vector2(-5.9604645e-08, -5.9604645e-08)
+scale = Vector2(0.046874996, 0.046874996)
+texture = ExtResource("1_yk2u2")
+
+[node name="pickup_range" type="Area2D" parent="." unique_id=696750072]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="pickup_range" unique_id=1187942919]
+shape = SubResource("CircleShape2D_wy8tx")
+
+[connection signal="body_entered" from="pickup_range" to="." method="_on_pickup_range_body_entered"]
+[connection signal="body_exited" from="pickup_range" to="." method="_on_pickup_range_body_exited"]
