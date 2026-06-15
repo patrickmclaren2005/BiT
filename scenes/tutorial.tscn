@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://dxgpvjgg4v10m" path="res://scenes/key.tscn" id="6_nlqja"]
 [ext_resource type="PackedScene" uid="uid://ciy7jmmy85kyx" path="res://scenes/player_camera.tscn" id="9_0epgs"]
 [ext_resource type="Script" uid="uid://2xivj1xnlnld" path="res://scripts/enemy_trigger.gd" id="10_0epgs"]
+[ext_resource type="PackedScene" uid="uid://cp70gh7d2ry34" path="res://scenes/generator.tscn" id="10_ej4tf"]
 [ext_resource type="PackedScene" uid="uid://dwh70sd6s3hrk" path="res://scenes/level_warp.tscn" id="11_g2equ"]
 [ext_resource type="PackedScene" uid="uid://1jpxg3nfnsnp" path="res://scenes/zigzag.tscn" id="12_tbcdj"]
 
@@ -476,6 +477,12 @@ position = Vector2(936, 112)
 position = Vector2(656, -392)
 key_name = "red"
 key_colour = Color(1, 0, 0, 1)
+
+[node name="gens" type="Node" parent="NavigationRegion2D" unique_id=279716862]
+
+[node name="generator" parent="NavigationRegion2D/gens" unique_id=1294421796 instance=ExtResource("10_ej4tf")]
+position = Vector2(296, 480)
+scale = Vector2(0.75, 0.75)
 
 [node name="enemy_trigger" type="Area2D" parent="." unique_id=1475559992]
 script = ExtResource("10_0epgs")

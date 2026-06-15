@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://dsuwixon14u6r" path="res://audio_reference.gd" id="1_6s07t"]
 [ext_resource type="AudioStream" uid="uid://ck36ii81geekh" path="res://audio/sfx/door.ogg" id="2_1uivw"]
 [ext_resource type="AudioStream" uid="uid://b7ssfq2i5e820" path="res://audio/sfx/footstep.ogg" id="3_56kjk"]
+[ext_resource type="AudioStream" uid="uid://b7sxi726704ul" path="res://audio/temp/snd_dumbvictory.wav" id="3_fxd8m"]
 [ext_resource type="AudioStream" uid="uid://cuwaqndvse6cw" path="res://audio/sfx/vent.ogg" id="4_fxd8m"]
 [ext_resource type="AudioStream" uid="uid://dwtyd0od3035a" path="res://audio/sfx/jumpscare.mp3" id="5_y2pbm"]
 [ext_resource type="AudioStream" uid="uid://qx486me8y3o8" path="res://audio/sfx/unlock.ogg" id="6_5l02b"]
@@ -13,6 +14,7 @@
 script = ExtResource("1_6s07t")
 sfx_door_open = ExtResource("2_1uivw")
 sfx_door_close = ExtResource("2_1uivw")
+sfx_generator_finish = ExtResource("3_fxd8m")
 sfx_enemy_footstep = ExtResource("3_56kjk")
 sfx_enemy_vent = ExtResource("4_fxd8m")
 sfx_enemy_jumpscare = ExtResource("5_y2pbm")

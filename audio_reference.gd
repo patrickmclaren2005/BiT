@@ -4,6 +4,7 @@ extends Node
 @export_group("Environment Audio")
 @export var sfx_door_open:AudioStream
 @export var sfx_door_close:AudioStream
+@export var sfx_generator_finish:AudioStream
 
 # ENEMY STUFF
 @export_group("Enemy Audio")
