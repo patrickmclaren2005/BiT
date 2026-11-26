@@ -16,6 +16,9 @@ var is_player_in_range = false
 var the_player:player
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	if is_open:
+		open_door()
+		unlock_door()
 	if door_unlocked:
 		unlock_door()
 	else:
@@ -35,21 +38,24 @@ func _unhandled_input(event: InputEvent) -> void:
 func _process(delta: float) -> void:
 	pass
 
+func open_door():
+	collider.disabled = is_open
+	nav_obstacle.affect_navigation_mesh = !is_open
+	door_audio.play()
+	EventBus.recalculate_navmesh.emit()
+	if (is_open):
+		material.set_shader_parameter("current_alpha", 0.5);
+		key_indicator.material.set_shader_parameter("current_alpha", 0.5);
+	else:
+		material.set_shader_parameter("current_alpha", 1.0)
+		key_indicator.material.set_shader_parameter("current_alpha", 1.0)
+
 func change_open_state(open):
 	if (is_open == open):
 		return
 	else:
 		is_open = open
-		collider.disabled = is_open
-		nav_obstacle.affect_navigation_mesh = !is_open
-		door_audio.play()
-		EventBus.recalculate_navmesh.emit()
-		if (is_open):
-			material.set_shader_parameter("current_alpha", 0.5);
-			key_indicator.material.set_shader_parameter("current_alpha", 0.5);
-		else:
-			material.set_shader_parameter("current_alpha", 1.0)
-			key_indicator.material.set_shader_parameter("current_alpha", 1.0)
+		open_door()
 
 func unlock_door():
 	door_unlocked = true

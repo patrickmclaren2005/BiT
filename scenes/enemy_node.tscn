@@ -84,9 +84,7 @@ texture = ExtResource("2_lcxlm")
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="." unique_id=171839818]
 path_desired_distance = 1.0
-simplify_epsilon = 3.861
 avoidance_enabled = true
-radius = 100.0
 max_speed = 10.0
 debug_enabled = true
 

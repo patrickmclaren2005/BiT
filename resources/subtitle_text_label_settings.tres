@@ -1,0 +1,7 @@
+[gd_resource type="LabelSettings" format=3 uid="uid://ya5vlk1d7lo4"]
+
+[ext_resource type="FontFile" uid="uid://dr87hymki54cb" path="res://fonts/good timing bd.otf" id="1_81ois"]
+
+[resource]
+font = ExtResource("1_81ois")
+font_size = 30

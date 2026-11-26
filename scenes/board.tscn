@@ -12,7 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://uvcbkadtgtmj" path="res://icon.svg" id="7_n230i"]
 [ext_resource type="PackedScene" uid="uid://dxgpvjgg4v10m" path="res://scenes/key.tscn" id="9_mwcd8"]
 [ext_resource type="PackedScene" uid="uid://dwh70sd6s3hrk" path="res://scenes/level_warp.tscn" id="11_pnb36"]
-[ext_resource type="PackedScene" uid="uid://bq5c0jcfy5v7f" path="res://scenes/grid.tscn" id="13_mwcd8"]
+[ext_resource type="PackedScene" uid="uid://t88m4gyh41q2" path="res://scenes/vents.tscn" id="13_mwcd8"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ba0us"]
 shader = ExtResource("7_ar2e0")
@@ -69,11 +69,6 @@ shader_parameter/color = Color(0.5647059, 0.53333336, 0, 1)
 shader_parameter/current_alpha = 1.0
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_os6cd"]
-shader = ExtResource("5_c3r7o")
-shader_parameter/color = Color(0.5647059, 0.53333336, 0, 1)
-shader_parameter/current_alpha = 1.0
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_v21d4"]
 shader = ExtResource("5_c3r7o")
 shader_parameter/color = Color(0.5647059, 0.53333336, 0, 1)
 shader_parameter/current_alpha = 1.0
@@ -308,6 +303,9 @@ the_enemy = NodePath("../enemy_node")
 
 [node name="player_camera" parent="player" unique_id=1349893976 instance=ExtResource("5_ar2e0")]
 metadata/_edit_lock_ = true
+
+[node name="CanvasLayer" parent="player/player_camera" index="0" unique_id=401935784]
+visible = false
 
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="." unique_id=879309904]
 visible = false
@@ -598,15 +596,9 @@ scale = Vector2(32.00003, 7.9999275)
 
 [node name="Sprite2D5" parent="NavigationRegion2D/Doors" unique_id=1544799606 instance=ExtResource("3_nglv8")]
 material = SubResource("ShaderMaterial_os6cd")
-position = Vector2(716, 664)
+position = Vector2(715.9993, 675.99493)
 rotation = 1.5707964
-scale = Vector2(32.00003, 8.188997)
-
-[node name="Sprite2D7" parent="NavigationRegion2D/Doors" unique_id=1367647033 instance=ExtResource("3_nglv8")]
-material = SubResource("ShaderMaterial_v21d4")
-position = Vector2(796, 656)
-rotation = 1.5707964
-scale = Vector2(32.15636, 8.341857)
+scale = Vector2(56, 8)
 
 [node name="Sprite2D6" parent="NavigationRegion2D/Doors" unique_id=811063854 instance=ExtResource("3_nglv8")]
 material = SubResource("ShaderMaterial_5pkjh")

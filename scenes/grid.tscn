@@ -56,6 +56,11 @@ shader = ExtResource("6_726jt")
 shader_parameter/color = Color(0.44705883, 0.38039216, 0, 1)
 shader_parameter/current_alpha = 1.0
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_aktff"]
+shader = ExtResource("6_726jt")
+shader_parameter/color = Color(0.44705883, 0.38039216, 0, 1)
+shader_parameter/current_alpha = 1.0
+
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_awic7"]
 shader = ExtResource("6_726jt")
 shader_parameter/color = Color(0.44705883, 0.38039216, 0, 1)
@@ -1212,7 +1217,7 @@ key_value = "red"
 door_key_colour = Color(1, 0, 0, 0)
 
 [node name="Sprite2D7" parent="NavigationRegion2D/doors" unique_id=636556664 instance=ExtResource("5_jaoqn")]
-material = SubResource("ShaderMaterial_d4ula")
+material = SubResource("ShaderMaterial_aktff")
 position = Vector2(964, 424)
 rotation = 1.5707964
 scale = Vector2(31.999998, 8.000016)

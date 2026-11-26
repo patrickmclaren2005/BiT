@@ -29,8 +29,10 @@ func _process(delta: float) -> void:
 			anim.play("on")
 		EGeneratorState.TURNING_ON:
 			anim.play("turn_on")
+			anim.speed_scale = 1.0
 		EGeneratorState.TURNING_OFF:
-			anim.play_backwards("turn_on")
+			anim.play("turn_on")
+			anim.speed_scale = -1.0
 
 func handle_activation():
 	if generator_state != EGeneratorState.ON:
@@ -47,3 +49,6 @@ func _unhandled_input(event: InputEvent) -> void:
 func set_on():
 	generator_state = EGeneratorState.ON
 	AudioManager.load_play_sfx(AudioReference.sfx_generator_finish)
+
+func set_off():
+	generator_state = EGeneratorState.OFF

@@ -43,6 +43,7 @@ _data = {
 
 [node name="player_camera" type="Camera2D" unique_id=1349893976]
 zoom = Vector2(4, 4)
+position_smoothing_enabled = true
 script = ExtResource("1_eanys")
 
 [node name="CanvasLayer" parent="." unique_id=401935784 instance=ExtResource("1_7pa0d")]

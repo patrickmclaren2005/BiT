@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://dev3rhg3yrwh0" path="res://scenes/board.tscn" id="3_yx5hi"]
 [ext_resource type="PackedScene" uid="uid://1jpxg3nfnsnp" path="res://scenes/zigzag.tscn" id="4_qpyj6"]
 [ext_resource type="PackedScene" uid="uid://bq5c0jcfy5v7f" path="res://scenes/grid.tscn" id="5_h0wql"]
+[ext_resource type="Script" uid="uid://cdh3fhnpmmmew" path="res://scenes/title_screens/rickroll.gd" id="8_qpyj6"]
 
 [node name="level_select" type="Control" unique_id=1424941869]
 layout_mode = 3
@@ -38,7 +39,7 @@ offset_bottom = 352.0
 grow_horizontal = 2
 scale = Vector2(2, 2)
 theme_override_constants/h_separation = 30
-theme_override_constants/v_separation = -50
+theme_override_constants/v_separation = 11
 columns = 2
 
 [node name="button_loop" type="Button" parent="GridContainer" unique_id=66841893 groups=["level_buttons"]]
@@ -69,6 +70,15 @@ text = "Zigzag"
 script = ExtResource("1_xmu4t")
 attach_level = ExtResource("4_qpyj6")
 
+[node name="button_vents" type="Button" parent="GridContainer" unique_id=1953420107 groups=["level_buttons"]]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 6
+theme = ExtResource("2_yx5hi")
+text = "Vents"
+script = ExtResource("1_xmu4t")
+attach_level = ExtResource("5_h0wql")
+
 [node name="button_grid" type="Button" parent="GridContainer" unique_id=1134015143 groups=["level_buttons"]]
 layout_mode = 2
 size_flags_horizontal = 3
@@ -77,6 +87,14 @@ theme = ExtResource("2_yx5hi")
 text = "Grid"
 script = ExtResource("1_xmu4t")
 attach_level = ExtResource("5_h0wql")
+
+[node name="button_rickroll" type="Button" parent="GridContainer" unique_id=1019861690 groups=["level_buttons"]]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 6
+theme = ExtResource("2_yx5hi")
+text = "Rickroll"
+script = ExtResource("8_qpyj6")
 
 [node name="button_back" type="Button" parent="." unique_id=756489516]
 layout_mode = 0
@@ -102,5 +120,7 @@ metadata/_edit_lock_ = true
 [connection signal="pressed" from="GridContainer/button_loop" to="GridContainer/button_loop" method="_on_pressed"]
 [connection signal="pressed" from="GridContainer/button_labrynth" to="GridContainer/button_labrynth" method="_on_pressed"]
 [connection signal="pressed" from="GridContainer/button_zigzag" to="GridContainer/button_zigzag" method="_on_pressed"]
+[connection signal="pressed" from="GridContainer/button_vents" to="GridContainer/button_vents" method="_on_pressed"]
 [connection signal="pressed" from="GridContainer/button_grid" to="GridContainer/button_grid" method="_on_pressed"]
+[connection signal="pressed" from="GridContainer/button_rickroll" to="GridContainer/button_rickroll" method="_on_pressed"]
 [connection signal="pressed" from="button_back" to="." method="_on_button_back_pressed"]

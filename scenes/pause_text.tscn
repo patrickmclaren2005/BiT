@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://ukr0juua1xrt" path="res://scripts/pause_text.gd" id="1_7elj1"]
 [ext_resource type="LabelSettings" uid="uid://tmu6pbavisxx" path="res://resources/title_text_label_settings.tres" id="1_ta63y"]
 [ext_resource type="Theme" uid="uid://diwl2ffmjyp4" path="res://resources/button_theme_main.tres" id="3_ichc8"]
+[ext_resource type="PackedScene" uid="uid://mi5bj5mjkhr4" path="res://scenes/sound_options.tscn" id="4_okexu"]
 
 [node name="pause_text" type="Control" unique_id=1964498464]
 layout_mode = 3
@@ -11,9 +12,10 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 script = ExtResource("1_7elj1")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1975746619]
+[node name="main_pause" type="VBoxContainer" parent="." unique_id=1975746619]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -27,14 +29,25 @@ offset_bottom = 60.5
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Label" type="Label" parent="VBoxContainer" unique_id=398545461]
+[node name="Label" type="Label" parent="main_pause" unique_id=398545461]
 layout_mode = 2
 text = "PAUSED"
 label_settings = ExtResource("1_ta63y")
 
-[node name="Button" type="Button" parent="VBoxContainer" unique_id=805116899]
+[node name="to_sound" type="Button" parent="main_pause" unique_id=1246967414]
 layout_mode = 2
 theme = ExtResource("3_ichc8")
-text = "Back to Menu"
+text = "Settings"
 
-[connection signal="pressed" from="VBoxContainer/Button" to="." method="_on_button_pressed"]
+[node name="Button" type="Button" parent="main_pause" unique_id=805116899]
+layout_mode = 2
+theme = ExtResource("3_ichc8")
+text = "Back to Menu (Exit Game)"
+
+[node name="sound_options" parent="." unique_id=490370453 instance=ExtResource("4_okexu")]
+visible = false
+layout_mode = 1
+
+[connection signal="pressed" from="main_pause/to_sound" to="." method="_on_to_sound_pressed"]
+[connection signal="pressed" from="main_pause/Button" to="." method="_on_button_pressed"]
+[connection signal="visibility_changed" from="sound_options" to="." method="_on_sound_options_visibility_changed"]

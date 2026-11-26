@@ -47,6 +47,8 @@ func _process(delta: float) -> void:
 	set_movement_target(player_to_chase.global_position)
 
 func _ready() -> void:
+	if (GlobalSettings.monster_enabled == false):
+		self.queue_free()
 	$Sprite2D.material.set_shader_parameter("nodeColour", enemy_colour)
 	nav_agent.velocity_computed.connect(Callable(_on_velocity_computed))
 	if random_points:

@@ -12,6 +12,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 script = ExtResource("1_cw4ki")
 
 [node name="background" type="ColorRect" parent="." unique_id=1347112479]
@@ -54,6 +55,11 @@ layout_mode = 2
 theme = ExtResource("3_vbjei")
 text = "Level Select"
 
+[node name="CheckButton" type="CheckButton" parent="VBoxContainer" unique_id=1446783967]
+layout_mode = 2
+button_pressed = true
+text = "Enable Monster"
+
 [node name="crt" type="ColorRect" parent="." unique_id=1278097613]
 material = ExtResource("1_1mcje")
 layout_mode = 1
@@ -66,3 +72,4 @@ mouse_filter = 2
 
 [connection signal="pressed" from="VBoxContainer/start_game_button" to="." method="_on_start_game_button_pressed"]
 [connection signal="pressed" from="VBoxContainer/level_select_button" to="." method="_on_level_select_button_pressed"]
+[connection signal="toggled" from="VBoxContainer/CheckButton" to="." method="_on_check_button_toggled"]

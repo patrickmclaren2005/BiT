@@ -1,0 +1,93 @@
+[gd_scene format=3 uid="uid://ban3emqvwrs23"]
+
+[ext_resource type="Shader" uid="uid://sp4iiwkst3fe" path="res://shaders/colour_wall.gdshader" id="1_3aqo6"]
+[ext_resource type="PackedScene" uid="uid://dvhk4tgsk3ju7" path="res://scenes/character_body_2d.tscn" id="1_6tisa"]
+[ext_resource type="Script" uid="uid://m5bdhcs5x55p" path="res://scripts/board.gd" id="1_rlct4"]
+[ext_resource type="PackedScene" uid="uid://cg5le14ejdgsg" path="res://scenes/door_node.tscn" id="2_dbkse"]
+[ext_resource type="Texture2D" uid="uid://uvcbkadtgtmj" path="res://icon.svg" id="2_rlct4"]
+[ext_resource type="PackedScene" uid="uid://dwh70sd6s3hrk" path="res://scenes/level_warp.tscn" id="3_oox4p"]
+[ext_resource type="PackedScene" uid="uid://dev3rhg3yrwh0" path="res://scenes/board.tscn" id="4_k2uud"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_earhg"]
+shader = ExtResource("1_3aqo6")
+shader_parameter/node_colour = Vector4(0.2, 0.2, 0.2, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_u6ue0"]
+shader = ExtResource("1_3aqo6")
+shader_parameter/node_colour = Vector4(0.1, 0.1, 0.1, 1)
+
+[sub_resource type="Environment" id="Environment_6tisa"]
+background_mode = 3
+glow_enabled = true
+glow_intensity = 1.56
+glow_bloom = 0.69
+glow_hdr_threshold = 0.29
+glow_hdr_scale = 0.83
+glow_hdr_luminance_cap = 14.64
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_0n1tn"]
+vertices = PackedVector2Array(667, 293, 667, 667, 485, 667, 581, 333, 485, 333, 581, 293, 115, 333, 347, 333, 347, 603, 37, 603, 37, 229, 115, 229, 347, 291, 157, 291, 157, 229, 347, 229, 539, 37, 539, 251, 443, 251, 389, 187, 443, 291, 389, 291, 157, 37, 157, 187, 709, 709, 834.3672, 763, -35.1875, 763, 443, 709, 739.5625, -27.039063, 709, 251, 581, 251, 581, -5, -66.78906, -34.9375, 115, -5, 115, 187, -5, 187, -5, 645, 389, 645, 443, 333, 389, 333, 563, 315, 467, 315, 365, 309, 371, 309, 691, 269, 691, 691, 685, 685, 685, 275, 563, 269, 563, 275, 557, 309, 557, 275, 461, 691, 467, 685, 461, 315, 371, 315, 371, 627, 365, 621, 365, 315, 139, 309, 13, 627, 19, 621, 13, 205, 19, 211, 133, 205, 133, 211, 563, 13, 557, 269, 557, 19, 133, 13, 139, 19, 139, 205, 461, 269, 467, 275, 461, 309, 467, 309, 133, 315, 139, 211, 371, 205, 365, 211)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(2, 4, 3), PackedInt32Array(0, 3, 5), PackedInt32Array(6, 7, 8, 9), PackedInt32Array(6, 9, 10, 11), PackedInt32Array(12, 13, 14, 15), PackedInt32Array(16, 17, 18, 19), PackedInt32Array(18, 20, 21, 19), PackedInt32Array(22, 16, 19, 23), PackedInt32Array(24, 25, 26, 27), PackedInt32Array(28, 25, 24, 29), PackedInt32Array(29, 30, 31, 28), PackedInt32Array(32, 28, 31, 33), PackedInt32Array(33, 34, 35, 32), PackedInt32Array(26, 32, 35, 36), PackedInt32Array(27, 26, 36, 37), PackedInt32Array(38, 27, 37, 39), PackedInt32Array(40, 41, 42, 43), PackedInt32Array(44, 45, 46, 47), PackedInt32Array(48, 44, 47, 49), PackedInt32Array(49, 40, 50, 51), PackedInt32Array(46, 45, 52, 53), PackedInt32Array(53, 52, 54, 41), PackedInt32Array(42, 41, 54), PackedInt32Array(42, 54, 55), PackedInt32Array(55, 56, 57, 58), PackedInt32Array(42, 55, 58, 59), PackedInt32Array(57, 56, 60, 61), PackedInt32Array(61, 60, 62, 63), PackedInt32Array(63, 62, 64, 65), PackedInt32Array(66, 48, 67, 68), PackedInt32Array(69, 66, 68, 70), PackedInt32Array(64, 69, 70, 71), PackedInt32Array(67, 48, 49, 51), PackedInt32Array(72, 67, 51, 73), PackedInt32Array(74, 72, 73, 75), PackedInt32Array(59, 58, 76), PackedInt32Array(59, 76, 65, 77), PackedInt32Array(77, 65, 64, 71), PackedInt32Array(77, 71, 78, 79), PackedInt32Array(79, 78, 43, 42), PackedInt32Array(40, 43, 74), PackedInt32Array(40, 74, 75), PackedInt32Array(40, 75, 50)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-72, -40, -40, 768, 840, 768, 744, -32)])
+agent_radius = 5.0
+
+[node name="base_level" type="Node2D" unique_id=1852403849]
+script = ExtResource("1_rlct4")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1789709501]
+offset_left = -1456.0
+offset_top = -1440.0
+offset_right = 2408.0
+offset_bottom = 1248.0
+color = Color(0, 0, 0, 1)
+
+[node name="floor" type="Node2D" parent="." unique_id=1019075121]
+
+[node name="floor_hall" type="Node2D" parent="floor" unique_id=1619489308]
+
+[node name="Sprite2D8" type="Sprite2D" parent="floor/floor_hall" unique_id=571572838]
+material = SubResource("ShaderMaterial_earhg")
+position = Vector2(76.00003, 416)
+scale = Vector2(0.5624995, 3.3749995)
+texture = ExtResource("2_rlct4")
+
+[node name="floor_room" type="Node2D" parent="floor" unique_id=916992459]
+
+[node name="Sprite2D" type="Sprite2D" parent="floor/floor_room" unique_id=1054692046]
+material = SubResource("ShaderMaterial_u6ue0")
+position = Vector2(16.00002, 416)
+scale = Vector2(0.24999969, 0.25000012)
+texture = ExtResource("2_rlct4")
+
+[node name="CharacterBody2D" parent="." unique_id=2066349968 instance=ExtResource("1_6tisa")]
+speed = 50
+sprint_speed = 100
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=439033597]
+environment = SubResource("Environment_6tisa")
+
+[node name="NavigationRegion2D" type="NavigationRegion2D" parent="." unique_id=1554771331]
+visible = false
+navigation_polygon = SubResource("NavigationPolygon_0n1tn")
+
+[node name="doors" type="Node" parent="NavigationRegion2D" unique_id=418410335]
+
+[node name="Sprite2D" parent="NavigationRegion2D/doors" unique_id=352309729 instance=ExtResource("2_dbkse")]
+position = Vector2(48, 12.000002)
+scale = Vector2(32, 8.000002)
+
+[node name="keys" type="Node" parent="NavigationRegion2D" unique_id=1681298869]
+
+[node name="random_points" type="Node" parent="NavigationRegion2D" unique_id=688706330]
+
+[node name="Node2D" type="Node2D" parent="NavigationRegion2D/random_points" unique_id=1896792179]
+position = Vector2(56, 216)
+
+[node name="Node2D2" type="Node2D" parent="NavigationRegion2D/random_points" unique_id=366463475]
+position = Vector2(96, 616)
+
+[node name="level_warp" parent="." unique_id=576635002 instance=ExtResource("3_oox4p")]
+process_mode = 3
+position = Vector2(280, 656)
+next_scene = ExtResource("4_k2uud")
+audio_clip = null

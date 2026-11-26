@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bf64yy6fmv8ra"
-path="res://.godot/imported/Git_Godot.png-4aeb0e144977c23a761207853ac39f47.ctex"
+uid="uid://d2kraxaxjj3nx"
+path="res://.godot/imported/pixil-frame-0(7).png-95a53c474551f652932304c0c285558a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://addons/GitGodot/Git_Godot.png"
-dest_files=["res://.godot/imported/Git_Godot.png-4aeb0e144977c23a761207853ac39f47.ctex"]
+source_file="res://sprites/text_icons/pixil-frame-0(7).png"
+dest_files=["res://.godot/imported/pixil-frame-0(7).png-95a53c474551f652932304c0c285558a.ctex"]
 
 [params]
 

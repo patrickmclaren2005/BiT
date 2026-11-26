@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c3l2lnc5lgsa1"
-path="res://.godot/imported/vodafone-icon.svg-f0c8437e245c2810da927110a6ba678c.ctex"
+uid="uid://bf5ed2kdou8el"
+path="res://.godot/imported/pixil-frame-0(6).png-d3b44b3cda20f438943f82ad5590e90f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://addons/GitGodot/vodafone-icon.svg"
-dest_files=["res://.godot/imported/vodafone-icon.svg-f0c8437e245c2810da927110a6ba678c.ctex"]
+source_file="res://sprites/text_icons/pixil-frame-0(6).png"
+dest_files=["res://.godot/imported/pixil-frame-0(6).png-d3b44b3cda20f438943f82ad5590e90f.ctex"]
 
 [params]
 
@@ -38,6 +38,3 @@ process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
 detect_3d/compress_to=1
-svg/scale=1.0
-editor/scale_with_editor_scale=false
-editor/convert_colors_with_editor_theme=false

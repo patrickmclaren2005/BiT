@@ -2,6 +2,7 @@
 
 [ext_resource type="FontFile" uid="uid://dr87hymki54cb" path="res://fonts/good timing bd.otf" id="1_ddt6f"]
 [ext_resource type="Script" uid="uid://bwpk7acqo2kh7" path="res://scripts/start_sequence.gd" id="1_dyg1a"]
+[ext_resource type="Theme" uid="uid://diwl2ffmjyp4" path="res://resources/button_theme_main.tres" id="3_08ag5"]
 [ext_resource type="Material" uid="uid://bi0k2jsktudsn" path="res://resources/crt_shader_mat.tres" id="3_dyg1a"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_dyg1a"]
@@ -27,18 +28,20 @@ grow_vertical = 2
 color = Color(0, 0, 0, 1)
 
 [node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1649798381]
+custom_maximum_size = Vector2(100, -1)
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -398.5
-offset_top = -165.5
-offset_right = 398.5
-offset_bottom = 165.5
+offset_left = -464.0
+offset_top = -198.0
+offset_right = 464.0
+offset_bottom = 198.0
 grow_horizontal = 2
 grow_vertical = 2
+alignment = 1
 
 [node name="Label" type="Label" parent="VBoxContainer" unique_id=1893902759]
 layout_mode = 2
@@ -60,6 +63,7 @@ horizontal_alignment = 1
 
 [node name="Button" type="Button" parent="VBoxContainer" unique_id=1168182435]
 layout_mode = 2
+theme = ExtResource("3_08ag5")
 text = "Continue..."
 
 [node name="ColorRect2" type="ColorRect" parent="." unique_id=1230268351]

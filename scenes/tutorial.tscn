@@ -55,6 +55,11 @@ shader = ExtResource("6_0epgs")
 shader_parameter/color = Color(0.44705883, 0.38039216, 0, 1)
 shader_parameter/current_alpha = 1.0
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_cmspm"]
+shader = ExtResource("6_0epgs")
+shader_parameter/color = Color(0.44705883, 0.38039216, 0, 1)
+shader_parameter/current_alpha = 1.0
+
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_g2equ"]
 shader = ExtResource("6_0epgs")
 shader_parameter/color = Color(0.44705883, 0.38039216, 0, 1)
@@ -439,6 +444,7 @@ door_unlocked = false
 door_key_colour = Color(1, 0, 0, 1)
 
 [node name="Sprite2D2" parent="NavigationRegion2D/Doors" unique_id=1315701851 instance=ExtResource("3_cq4me")]
+material = SubResource("ShaderMaterial_cmspm")
 position = Vector2(767.99994, 260)
 scale = Vector2(31.999989, 8.000008)
 

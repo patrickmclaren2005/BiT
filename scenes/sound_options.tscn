@@ -1,0 +1,111 @@
+[gd_scene format=3 uid="uid://mi5bj5mjkhr4"]
+
+[ext_resource type="Script" uid="uid://d0i5tw1tryfw" path="res://scripts/sound_options.gd" id="1_3sc08"]
+[ext_resource type="LabelSettings" uid="uid://tmu6pbavisxx" path="res://resources/title_text_label_settings.tres" id="1_wx328"]
+[ext_resource type="Theme" uid="uid://diwl2ffmjyp4" path="res://resources/button_theme_main.tres" id="3_7tkai"]
+[ext_resource type="LabelSettings" uid="uid://ya5vlk1d7lo4" path="res://resources/subtitle_text_label_settings.tres" id="3_btipn"]
+
+[node name="sound_options" type="Control" unique_id=490370453]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_3sc08")
+
+[node name="ReferenceRect" type="ReferenceRect" parent="." unique_id=353565608]
+layout_mode = 0
+offset_left = 192.0
+offset_top = 88.0
+offset_right = 832.0
+offset_bottom = 664.0
+border_color = Color(1, 1, 1, 1)
+border_width = 34.0
+editor_only = false
+
+[node name="ColorRect" type="ColorRect" parent="ReferenceRect" unique_id=1795732758]
+layout_mode = 0
+offset_right = 640.0
+offset_bottom = 576.0
+color = Color(0, 0, 0, 1)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ReferenceRect" unique_id=706269197]
+layout_mode = 0
+offset_left = 64.0
+offset_top = 40.0
+offset_right = 584.0
+offset_bottom = 505.0
+
+[node name="sound_settings" type="Label" parent="ReferenceRect/VBoxContainer" unique_id=876313457]
+layout_mode = 2
+text = "Sound 
+Settings"
+label_settings = ExtResource("1_wx328")
+horizontal_alignment = 1
+
+[node name="master_label" type="Label" parent="ReferenceRect/VBoxContainer" unique_id=1421795133]
+layout_mode = 2
+text = "Master"
+label_settings = ExtResource("3_btipn")
+horizontal_alignment = 1
+
+[node name="master_slider" type="HSlider" parent="ReferenceRect/VBoxContainer" unique_id=1252882264]
+process_mode = 3
+layout_mode = 2
+max_value = 1.0
+step = 0.01
+value = 1.0
+
+[node name="mus_label" type="Label" parent="ReferenceRect/VBoxContainer" unique_id=2145259949]
+layout_mode = 2
+text = "Music"
+label_settings = ExtResource("3_btipn")
+horizontal_alignment = 1
+
+[node name="mus_slider" type="HSlider" parent="ReferenceRect/VBoxContainer" unique_id=831061873]
+process_mode = 3
+layout_mode = 2
+max_value = 1.0
+step = 0.01
+value = 1.0
+
+[node name="sfx_label" type="Label" parent="ReferenceRect/VBoxContainer" unique_id=545989707]
+layout_mode = 2
+text = "SFX"
+label_settings = ExtResource("3_btipn")
+horizontal_alignment = 1
+
+[node name="sfx_slider" type="HSlider" parent="ReferenceRect/VBoxContainer" unique_id=1570356957]
+process_mode = 3
+layout_mode = 2
+max_value = 1.0
+step = 0.01
+value = 1.0
+
+[node name="amb_label" type="Label" parent="ReferenceRect/VBoxContainer" unique_id=135523914]
+layout_mode = 2
+text = "Ambience"
+label_settings = ExtResource("3_btipn")
+horizontal_alignment = 1
+
+[node name="amb_slider" type="HSlider" parent="ReferenceRect/VBoxContainer" unique_id=1812242343]
+process_mode = 3
+layout_mode = 2
+max_value = 1.0
+step = 0.01
+value = 1.0
+
+[node name="back" type="Button" parent="ReferenceRect/VBoxContainer" unique_id=1294608843]
+process_mode = 3
+layout_mode = 2
+theme = ExtResource("3_7tkai")
+text = "Back"
+
+[connection signal="visibility_changed" from="." to="." method="_on_visibility_changed"]
+[connection signal="value_changed" from="ReferenceRect/VBoxContainer/master_slider" to="." method="_on_master_slider_value_changed"]
+[connection signal="value_changed" from="ReferenceRect/VBoxContainer/mus_slider" to="." method="_on_mus_slider_value_changed"]
+[connection signal="value_changed" from="ReferenceRect/VBoxContainer/sfx_slider" to="." method="_on_sfx_slider_value_changed"]
+[connection signal="value_changed" from="ReferenceRect/VBoxContainer/amb_slider" to="." method="_on_amb_slider_value_changed"]
+[connection signal="pressed" from="ReferenceRect/VBoxContainer/back" to="." method="_on_back_pressed"]

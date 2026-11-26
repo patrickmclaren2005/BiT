@@ -1,0 +1,386 @@
+[gd_scene format=3 uid="uid://t88m4gyh41q2"]
+
+[ext_resource type="PackedScene" uid="uid://ban3emqvwrs23" path="res://scenes/base_level.tscn" id="1_ibfh2"]
+[ext_resource type="PackedScene" uid="uid://ciy7jmmy85kyx" path="res://scenes/player_camera.tscn" id="2_5garj"]
+[ext_resource type="Shader" uid="uid://sp4iiwkst3fe" path="res://shaders/colour_wall.gdshader" id="2_53v0l"]
+[ext_resource type="PackedScene" uid="uid://vg7xfeey2a2g" path="res://scenes/wall_node.tscn" id="2_gxg0a"]
+[ext_resource type="Texture2D" uid="uid://uvcbkadtgtmj" path="res://icon.svg" id="3_fhy05"]
+[ext_resource type="PackedScene" uid="uid://dxgpvjgg4v10m" path="res://scenes/key.tscn" id="4_g5wak"]
+[ext_resource type="PackedScene" uid="uid://w6ei40my8x01" path="res://scenes/enemy_node.tscn" id="4_u5nyg"]
+[ext_resource type="PackedScene" uid="uid://cg5le14ejdgsg" path="res://scenes/door_node.tscn" id="7_fhy05"]
+[ext_resource type="Shader" uid="uid://ik4y1lr32tr8" path="res://shaders/colour_wall_hollow.gdshader" id="8_t8jpr"]
+[ext_resource type="PackedScene" uid="uid://bq5c0jcfy5v7f" path="res://scenes/grid.tscn" id="10_7q27y"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_earhg"]
+shader = ExtResource("2_53v0l")
+shader_parameter/node_colour = Vector4(0.2, 0.2, 0.2, 1)
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_u5nyg"]
+vertices = PackedVector2Array(667, 293, 667, 667, 485, 667, 581, 333, 485, 333, 581, 293, 115, 333, 347, 333, 347, 603, 37, 603, 37, 229, 115, 229, 347, 291, 157, 291, 157, 229, 347, 229, 539, 37, 539, 251, 443, 251, 389, 187, 443, 291, 389, 291, 157, 37, 157, 187, 709, 709, 834.3672, 763, -35.1875, 763, 443, 709, 739.5625, -27.039063, 709, 251, 581, 251, 581, -5, -66.78906, -34.9375, 115, -5, 115, 187, -5, 187, -5, 645, 389, 645, 443, 333, 389, 333, 563, 315, 467, 315, 365, 309, 371, 309, 691, 269, 691, 691, 685, 685, 685, 275, 563, 269, 563, 275, 557, 309, 557, 275, 461, 691, 467, 685, 461, 315, 371, 315, 371, 627, 365, 621, 365, 315, 139, 309, 13, 627, 19, 621, 13, 205, 19, 211, 133, 205, 133, 211, 563, 13, 557, 269, 557, 19, 133, 13, 139, 19, 139, 205, 461, 269, 467, 275, 461, 309, 467, 309, 133, 315, 139, 211, 371, 205, 365, 211)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(2, 4, 3), PackedInt32Array(0, 3, 5), PackedInt32Array(6, 7, 8, 9), PackedInt32Array(6, 9, 10, 11), PackedInt32Array(12, 13, 14, 15), PackedInt32Array(16, 17, 18, 19), PackedInt32Array(18, 20, 21, 19), PackedInt32Array(22, 16, 19, 23), PackedInt32Array(24, 25, 26, 27), PackedInt32Array(28, 25, 24, 29), PackedInt32Array(29, 30, 31, 28), PackedInt32Array(32, 28, 31, 33), PackedInt32Array(33, 34, 35, 32), PackedInt32Array(26, 32, 35, 36), PackedInt32Array(27, 26, 36, 37), PackedInt32Array(38, 27, 37, 39), PackedInt32Array(40, 41, 42, 43), PackedInt32Array(44, 45, 46, 47), PackedInt32Array(48, 44, 47, 49), PackedInt32Array(49, 40, 50, 51), PackedInt32Array(46, 45, 52, 53), PackedInt32Array(53, 52, 54, 41), PackedInt32Array(42, 41, 54), PackedInt32Array(42, 54, 55), PackedInt32Array(55, 56, 57, 58), PackedInt32Array(42, 55, 58, 59), PackedInt32Array(57, 56, 60, 61), PackedInt32Array(61, 60, 62, 63), PackedInt32Array(63, 62, 64, 65), PackedInt32Array(66, 48, 67, 68), PackedInt32Array(69, 66, 68, 70), PackedInt32Array(64, 69, 70, 71), PackedInt32Array(67, 48, 49, 51), PackedInt32Array(72, 67, 51, 73), PackedInt32Array(74, 72, 73, 75), PackedInt32Array(59, 58, 76), PackedInt32Array(59, 76, 65, 77), PackedInt32Array(77, 65, 64, 71), PackedInt32Array(77, 71, 78, 79), PackedInt32Array(79, 78, 43, 42), PackedInt32Array(40, 43, 74), PackedInt32Array(40, 74, 75), PackedInt32Array(40, 75, 50)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-72, -40, -40, 768, 840, 768, 744, -32)])
+agent_radius = 1.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_7q27y"]
+shader = ExtResource("8_t8jpr")
+shader_parameter/color = Color(0.44705883, 0.38039216, 0, 1)
+shader_parameter/current_alpha = 1.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_xs42q"]
+shader = ExtResource("8_t8jpr")
+shader_parameter/color = Color(0.44705883, 0.38039216, 0, 1)
+shader_parameter/current_alpha = 1.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_mopj5"]
+shader = ExtResource("8_t8jpr")
+shader_parameter/color = Color(0.44705883, 0.38039216, 0, 1)
+shader_parameter/current_alpha = 1.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_b162y"]
+shader = ExtResource("8_t8jpr")
+shader_parameter/color = Color(0.44705883, 0.38039216, 0, 1)
+shader_parameter/current_alpha = 1.0
+
+[node name="base_level" unique_id=1852403849 instance=ExtResource("1_ibfh2")]
+
+[node name="Sprite2D8" parent="floor/floor_hall" parent_id_path=PackedInt32Array(1619489308) index="0" unique_id=571572838]
+position = Vector2(16.000004, 416)
+scale = Vector2(0.12500001, 3.3749995)
+
+[node name="Sprite2D9" type="Sprite2D" parent="floor/floor_hall" parent_id_path=PackedInt32Array(1619489308) index="1" unique_id=1368793160]
+material = SubResource("ShaderMaterial_earhg")
+position = Vector2(192, 624)
+scale = Vector2(2.875, 0.12499971)
+texture = ExtResource("3_fhy05")
+
+[node name="Sprite2D10" type="Sprite2D" parent="floor/floor_hall" parent_id_path=PackedInt32Array(1619489308) index="2" unique_id=103025424]
+material = SubResource("ShaderMaterial_earhg")
+position = Vector2(368, 416)
+scale = Vector2(0.12499997, 3.3750002)
+texture = ExtResource("3_fhy05")
+
+[node name="Sprite2D11" type="Sprite2D" parent="floor/floor_hall" parent_id_path=PackedInt32Array(1619489308) index="3" unique_id=1888369068]
+material = SubResource("ShaderMaterial_earhg")
+position = Vector2(200, 208)
+scale = Vector2(2.75, 0.12500015)
+texture = ExtResource("3_fhy05")
+
+[node name="Sprite2D12" type="Sprite2D" parent="floor/floor_hall" parent_id_path=PackedInt32Array(1619489308) index="4" unique_id=1309037660]
+material = SubResource("ShaderMaterial_earhg")
+position = Vector2(136, 164)
+scale = Vector2(0.125, 2.4375002)
+texture = ExtResource("3_fhy05")
+
+[node name="Sprite2D13" type="Sprite2D" parent="floor/floor_hall" parent_id_path=PackedInt32Array(1619489308) index="5" unique_id=997359941]
+material = SubResource("ShaderMaterial_earhg")
+position = Vector2(348, 312)
+scale = Vector2(3.4375, 0.12500015)
+texture = ExtResource("3_fhy05")
+
+[node name="Sprite2D14" type="Sprite2D" parent="floor/floor_hall" parent_id_path=PackedInt32Array(1619489308) index="6" unique_id=823038748]
+material = SubResource("ShaderMaterial_earhg")
+position = Vector2(560, 164)
+scale = Vector2(0.12499988, 2.4375)
+texture = ExtResource("3_fhy05")
+
+[node name="Sprite2D15" type="Sprite2D" parent="floor/floor_hall" parent_id_path=PackedInt32Array(1619489308) index="7" unique_id=1283169862]
+material = SubResource("ShaderMaterial_earhg")
+position = Vector2(356, 16)
+scale = Vector2(3.3125002, 0.125)
+texture = ExtResource("3_fhy05")
+
+[node name="Sprite2D16" type="Sprite2D" parent="floor/floor_hall" parent_id_path=PackedInt32Array(1619489308) index="8" unique_id=1179578141]
+material = SubResource("ShaderMaterial_earhg")
+position = Vector2(576, 272)
+scale = Vector2(1.8749999, 0.124999866)
+texture = ExtResource("3_fhy05")
+
+[node name="Sprite2D17" type="Sprite2D" parent="floor/floor_hall" parent_id_path=PackedInt32Array(1619489308) index="9" unique_id=1306066404]
+material = SubResource("ShaderMaterial_earhg")
+position = Vector2(688, 480)
+scale = Vector2(0.12499987, 3.3749998)
+texture = ExtResource("3_fhy05")
+
+[node name="Sprite2D18" type="Sprite2D" parent="floor/floor_hall" parent_id_path=PackedInt32Array(1619489308) index="10" unique_id=374986910]
+material = SubResource("ShaderMaterial_earhg")
+position = Vector2(576, 688)
+scale = Vector2(1.875, 0.12500031)
+texture = ExtResource("3_fhy05")
+
+[node name="Sprite2D19" type="Sprite2D" parent="floor/floor_hall" parent_id_path=PackedInt32Array(1619489308) index="11" unique_id=1585823278]
+material = SubResource("ShaderMaterial_earhg")
+position = Vector2(464, 488)
+scale = Vector2(0.1250001, 3.2500002)
+texture = ExtResource("3_fhy05")
+
+[node name="Sprite2D" parent="floor/floor_room" parent_id_path=PackedInt32Array(916992459) index="0" unique_id=1054692046]
+position = Vector2(640, 244)
+scale = Vector2(0.24999993, 0.31250006)
+
+[node name="CharacterBody2D" parent="." index="2" unique_id=2066349968]
+position = Vector2(15.999999, 287.99997)
+
+[node name="player_camera" parent="CharacterBody2D" index="6" unique_id=1349893976 instance=ExtResource("2_5garj")]
+
+[node name="enemy_node" parent="." index="4" unique_id=642146302 node_paths=PackedStringArray("random_points") instance=ExtResource("4_u5nyg")]
+position = Vector2(16, 424)
+scale = Vector2(0.09, 0.09)
+random_points = NodePath("../NavigationRegion2D/random_points")
+
+[node name="NavigationRegion2D" parent="." index="5" unique_id=1554771331]
+visible = true
+navigation_polygon = SubResource("NavigationPolygon_u5nyg")
+
+[node name="walls" type="Node" parent="NavigationRegion2D" index="0" unique_id=922341215]
+
+[node name="Sprite2D8" parent="NavigationRegion2D/walls" index="0" unique_id=2097776122 instance=ExtResource("2_gxg0a")]
+position = Vector2(4, 416)
+scale = Vector2(0.06250001, 3.5)
+
+[node name="Sprite2D21" parent="NavigationRegion2D/walls" index="1" unique_id=1088963400 instance=ExtResource("2_gxg0a")]
+position = Vector2(28, 416)
+scale = Vector2(0.06250001, 3.125)
+
+[node name="Sprite2D23" parent="NavigationRegion2D/walls" index="2" unique_id=807710236 instance=ExtResource("2_gxg0a")]
+position = Vector2(76, 220.00002)
+scale = Vector2(0.8125, 0.06250013)
+
+[node name="Sprite2D24" parent="NavigationRegion2D/walls" index="3" unique_id=34218306 instance=ExtResource("2_gxg0a")]
+position = Vector2(124, 272)
+scale = Vector2(0.062500045, 0.8749999)
+
+[node name="Sprite2D27" parent="NavigationRegion2D/walls" index="4" unique_id=166371268 instance=ExtResource("2_gxg0a")]
+position = Vector2(148, 112.00001)
+scale = Vector2(0.062500015, 1.3749999)
+
+[node name="Sprite2D34" parent="NavigationRegion2D/walls" index="5" unique_id=1940744844 instance=ExtResource("2_gxg0a")]
+position = Vector2(348, 28.000008)
+scale = Vector2(3.1875, 0.062499855)
+
+[node name="Sprite2D28" parent="NavigationRegion2D/walls" index="6" unique_id=1188639880 instance=ExtResource("2_gxg0a")]
+position = Vector2(264, 196)
+scale = Vector2(1.8750002, 0.062499937)
+
+[node name="Sprite2D33" parent="NavigationRegion2D/walls" index="7" unique_id=1922121383 instance=ExtResource("2_gxg0a")]
+position = Vector2(380, 248)
+scale = Vector2(0.06250017, 0.87499994)
+
+[node name="Sprite2D35" parent="NavigationRegion2D/walls" index="8" unique_id=365656491 instance=ExtResource("2_gxg0a")]
+position = Vector2(416, 300)
+scale = Vector2(0.62500006, 0.062499966)
+
+[node name="Sprite2D36" parent="NavigationRegion2D/walls" index="9" unique_id=1931936889 instance=ExtResource("2_gxg0a")]
+position = Vector2(451.99997, 280)
+scale = Vector2(0.06250001, 0.37500003)
+
+[node name="Sprite2D39" parent="NavigationRegion2D/walls" index="10" unique_id=1968251255 instance=ExtResource("2_gxg0a")]
+position = Vector2(512, 300)
+scale = Vector2(0.62500024, 0.06250013)
+
+[node name="Sprite2D40" parent="NavigationRegion2D/walls" index="11" unique_id=324580216 instance=ExtResource("2_gxg0a")]
+position = Vector2(548, 292)
+scale = Vector2(0.06250026, 0.18750013)
+
+[node name="Sprite2D41" parent="NavigationRegion2D/walls" index="12" unique_id=1104217019 instance=ExtResource("2_gxg0a")]
+position = Vector2(512, 284)
+scale = Vector2(0.6250005, 0.062499985)
+
+[node name="Sprite2D42" parent="NavigationRegion2D/walls" index="13" unique_id=329161779 instance=ExtResource("2_gxg0a")]
+position = Vector2(476.00003, 292)
+scale = Vector2(0.062500045, 0.18749996)
+
+[node name="Sprite2D37" parent="NavigationRegion2D/walls" index="14" unique_id=2100236884 instance=ExtResource("2_gxg0a")]
+position = Vector2(499.99997, 260)
+scale = Vector2(0.8125001, 0.062499944)
+
+[node name="Sprite2D38" parent="NavigationRegion2D/walls" index="15" unique_id=229359058 instance=ExtResource("2_gxg0a")]
+position = Vector2(548, 148)
+scale = Vector2(0.06249986, 1.8125)
+
+[node name="Sprite2D32" parent="NavigationRegion2D/walls" index="16" unique_id=2126206949 instance=ExtResource("2_gxg0a")]
+position = Vector2(248, 220)
+scale = Vector2(1.6250002, 0.062499996)
+
+[node name="Sprite2D29" parent="NavigationRegion2D/walls" index="17" unique_id=1406437375 instance=ExtResource("2_gxg0a")]
+position = Vector2(356, 260)
+scale = Vector2(0.06250005, 0.68750006)
+
+[node name="Sprite2D30" parent="NavigationRegion2D/walls" index="18" unique_id=1031246101 instance=ExtResource("2_gxg0a")]
+position = Vector2(256, 300)
+scale = Vector2(1.6250004, 0.062499974)
+
+[node name="Sprite2D31" parent="NavigationRegion2D/walls" index="19" unique_id=826944702 instance=ExtResource("2_gxg0a")]
+position = Vector2(148, 260)
+scale = Vector2(0.062499903, 0.6875)
+
+[node name="Sprite2D25" parent="NavigationRegion2D/walls" index="20" unique_id=1690205491 instance=ExtResource("2_gxg0a")]
+position = Vector2(240, 324)
+scale = Vector2(1.8750001, 0.062499754)
+
+[node name="Sprite2D26" parent="NavigationRegion2D/walls" index="21" unique_id=79529351 instance=ExtResource("2_gxg0a")]
+position = Vector2(356, 468)
+scale = Vector2(0.06250006, 2.3124995)
+
+[node name="Sprite2D22" parent="NavigationRegion2D/walls" index="22" unique_id=1655586977 instance=ExtResource("2_gxg0a")]
+position = Vector2(192, 612)
+scale = Vector2(2.625, 0.06249994)
+
+[node name="Sprite2D16" parent="NavigationRegion2D/walls" index="23" unique_id=582779314 instance=ExtResource("2_gxg0a")]
+position = Vector2(64, 196)
+scale = Vector2(1, 0.06249998)
+
+[node name="Sprite2D17" parent="NavigationRegion2D/walls" index="24" unique_id=703569166 instance=ExtResource("2_gxg0a")]
+position = Vector2(124, 100)
+scale = Vector2(0.0625, 1.5625)
+
+[node name="Sprite2D18" parent="NavigationRegion2D/walls" index="25" unique_id=2083919937 instance=ExtResource("2_gxg0a")]
+position = Vector2(348, 4)
+scale = Vector2(3.5625002, 0.062499985)
+
+[node name="Sprite2D19" parent="NavigationRegion2D/walls" index="26" unique_id=329705212 instance=ExtResource("2_gxg0a")]
+position = Vector2(572, 132)
+scale = Vector2(0.062499978, 2.0625)
+
+[node name="Sprite2D20" parent="NavigationRegion2D/walls" index="27" unique_id=279409654 instance=ExtResource("2_gxg0a")]
+position = Vector2(600, 260)
+scale = Vector2(0.3750001, 0.0625)
+
+[node name="Sprite2D49" parent="NavigationRegion2D/walls" index="28" unique_id=434513877 instance=ExtResource("2_gxg0a")]
+position = Vector2(620, 240)
+scale = Vector2(0.062500134, 0.375)
+
+[node name="Sprite2D50" parent="NavigationRegion2D/walls" index="29" unique_id=1273388148 instance=ExtResource("2_gxg0a")]
+position = Vector2(640, 220)
+scale = Vector2(0.37500033, 0.06250012)
+
+[node name="Sprite2D51" parent="NavigationRegion2D/walls" index="30" unique_id=771969052 instance=ExtResource("2_gxg0a")]
+position = Vector2(660, 236)
+scale = Vector2(0.06250017, 0.31250012)
+
+[node name="Sprite2D9" parent="NavigationRegion2D/walls" index="31" unique_id=1702756871 instance=ExtResource("2_gxg0a")]
+position = Vector2(192.00002, 636)
+scale = Vector2(3.0000002, 0.06250018)
+
+[node name="Sprite2D10" parent="NavigationRegion2D/walls" index="32" unique_id=1139938753 instance=ExtResource("2_gxg0a")]
+position = Vector2(379.99997, 480)
+scale = Vector2(0.06249989, 2.5)
+
+[node name="Sprite2D11" parent="NavigationRegion2D/walls" index="33" unique_id=1828937321 instance=ExtResource("2_gxg0a")]
+position = Vector2(416, 324)
+scale = Vector2(0.6250003, 0.062499996)
+
+[node name="Sprite2D12" parent="NavigationRegion2D/walls" index="34" unique_id=1986830886 instance=ExtResource("2_gxg0a")]
+position = Vector2(452, 512)
+scale = Vector2(0.06250027, 3)
+
+[node name="Sprite2D43" parent="NavigationRegion2D/walls" index="35" unique_id=1759262824 instance=ExtResource("2_gxg0a")]
+position = Vector2(476, 500)
+scale = Vector2(0.06250003, 2.8125)
+
+[node name="Sprite2D44" parent="NavigationRegion2D/walls" index="36" unique_id=1147273727 instance=ExtResource("2_gxg0a")]
+position = Vector2(576, 676)
+scale = Vector2(1.625, 0.06249986)
+
+[node name="Sprite2D45" parent="NavigationRegion2D/walls" index="37" unique_id=985610556 instance=ExtResource("2_gxg0a")]
+position = Vector2(676, 483.99997)
+scale = Vector2(0.06250033, 3.0625)
+
+[node name="Sprite2D46" parent="NavigationRegion2D/walls" index="38" unique_id=724837546 instance=ExtResource("2_gxg0a")]
+position = Vector2(624.00006, 284)
+scale = Vector2(0.8749998, 0.0625001)
+
+[node name="Sprite2D47" parent="NavigationRegion2D/walls" index="39" unique_id=1987999305 instance=ExtResource("2_gxg0a")]
+position = Vector2(572, 304)
+scale = Vector2(0.062499333, 0.3750001)
+
+[node name="Sprite2D48" parent="NavigationRegion2D/walls" index="40" unique_id=1382830215 instance=ExtResource("2_gxg0a")]
+position = Vector2(527.99994, 324)
+scale = Vector2(0.7499999, 0.062500134)
+
+[node name="Sprite2D13" parent="NavigationRegion2D/walls" index="41" unique_id=1741157769 instance=ExtResource("2_gxg0a")]
+position = Vector2(576, 700)
+scale = Vector2(2, 0.06250012)
+
+[node name="Sprite2D14" parent="NavigationRegion2D/walls" index="42" unique_id=1872776003 instance=ExtResource("2_gxg0a")]
+position = Vector2(700, 480)
+scale = Vector2(0.0625, 3.5000002)
+
+[node name="Sprite2D15" parent="NavigationRegion2D/walls" index="43" unique_id=715481939 instance=ExtResource("2_gxg0a")]
+position = Vector2(680, 260)
+scale = Vector2(0.375, 0.06249995)
+
+[node name="Sprite2D" parent="NavigationRegion2D/doors" parent_id_path=PackedInt32Array(418410335) index="0" unique_id=352309729]
+position = Vector2(640, 260)
+scale = Vector2(32, 7.9999943)
+key_value = "blue"
+door_unlocked = false
+door_key_colour = Color(0, 0, 1, 1)
+
+[node name="Sprite2D2" parent="NavigationRegion2D/doors" parent_id_path=PackedInt32Array(418410335) index="1" unique_id=1536649990 instance=ExtResource("7_fhy05")]
+material = SubResource("ShaderMaterial_7q27y")
+position = Vector2(344, 16)
+rotation = 1.5707964
+scale = Vector2(16.00003, 8.00001)
+is_open = true
+key_value = "blue"
+
+[node name="Sprite2D4" parent="NavigationRegion2D/doors" parent_id_path=PackedInt32Array(418410335) index="2" unique_id=1879305456 instance=ExtResource("7_fhy05")]
+material = SubResource("ShaderMaterial_xs42q")
+position = Vector2(576, 687.99994)
+rotation = 1.5707964
+scale = Vector2(16.00003, 8.00001)
+is_open = true
+key_value = "blue"
+
+[node name="Sprite2D5" parent="NavigationRegion2D/doors" parent_id_path=PackedInt32Array(418410335) index="3" unique_id=1226330691 instance=ExtResource("7_fhy05")]
+material = SubResource("ShaderMaterial_mopj5")
+position = Vector2(224, 624)
+rotation = 1.5707964
+scale = Vector2(16.00003, 8.00001)
+is_open = true
+key_value = "blue"
+
+[node name="Sprite2D3" parent="NavigationRegion2D/doors" parent_id_path=PackedInt32Array(418410335) index="4" unique_id=611734222 instance=ExtResource("7_fhy05")]
+material = SubResource("ShaderMaterial_b162y")
+position = Vector2(368, 256)
+scale = Vector2(16.00003, 8.00001)
+is_open = true
+key_value = "blue"
+
+[node name="Node2D" parent="NavigationRegion2D/keys" parent_id_path=PackedInt32Array(1681298869) index="0" unique_id=1237451646 instance=ExtResource("4_g5wak")]
+position = Vector2(464, 688)
+key_name = "blue"
+key_colour = Color(0, 0, 1, 1)
+
+[node name="Node2D" parent="NavigationRegion2D/random_points" parent_id_path=PackedInt32Array(688706330) index="0" unique_id=1896792179]
+position = Vector2(16, 208)
+
+[node name="Node2D2" parent="NavigationRegion2D/random_points" parent_id_path=PackedInt32Array(688706330) index="1" unique_id=366463475]
+position = Vector2(368, 624)
+
+[node name="Node2D3" type="Node2D" parent="NavigationRegion2D/random_points" parent_id_path=PackedInt32Array(688706330) index="2" unique_id=1691929257]
+position = Vector2(136, 208)
+
+[node name="Node2D4" type="Node2D" parent="NavigationRegion2D/random_points" parent_id_path=PackedInt32Array(688706330) index="3" unique_id=1250053016]
+position = Vector2(368, 312)
+
+[node name="Node2D5" type="Node2D" parent="NavigationRegion2D/random_points" parent_id_path=PackedInt32Array(688706330) index="4" unique_id=1844210213]
+position = Vector2(464, 312)
+
+[node name="Node2D6" type="Node2D" parent="NavigationRegion2D/random_points" parent_id_path=PackedInt32Array(688706330) index="5" unique_id=884485232]
+position = Vector2(560, 272)
+
+[node name="Node2D7" type="Node2D" parent="NavigationRegion2D/random_points" parent_id_path=PackedInt32Array(688706330) index="6" unique_id=124922428]
+position = Vector2(560, 16)
+
+[node name="Node2D8" type="Node2D" parent="NavigationRegion2D/random_points" parent_id_path=PackedInt32Array(688706330) index="7" unique_id=918513488]
+position = Vector2(136, 16)
+
+[node name="Node2D9" type="Node2D" parent="NavigationRegion2D/random_points" parent_id_path=PackedInt32Array(688706330) index="8" unique_id=2096921463]
+position = Vector2(688, 688)
+
+[node name="level_warp" parent="." index="6" unique_id=576635002]
+position = Vector2(640, 240)
+next_scene = ExtResource("10_7q27y")
+
+[editable path="CharacterBody2D/player_camera"]

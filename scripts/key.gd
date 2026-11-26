@@ -10,7 +10,7 @@ extends Node2D
 var is_player_within_range = false
 
 func _unhandled_input(event: InputEvent) -> void:
-	if Input.is_action_just_pressed("interact") and is_player_within_range:
+	if is_player_within_range:
 		EventBus.add_key.emit(key_name)
 		print("Obtained key " + key_name)
 		self.queue_free()

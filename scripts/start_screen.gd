@@ -19,3 +19,7 @@ func _on_start_game_button_pressed() -> void:
 func _on_level_select_button_pressed() -> void:
 	AudioManager.load_play_sfx(AudioReference.sfx_ui_button_click)
 	get_tree().change_scene_to_file("res://scenes/title_screens/level_select.tscn")
+
+
+func _on_check_button_toggled(toggled_on: bool) -> void:
+	GlobalSettings.monster_enabled = toggled_on
